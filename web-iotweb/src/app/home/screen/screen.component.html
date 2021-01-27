@@ -1,0 +1,119 @@
+<div style="text-align: center;width: 100%;">
+    <br>
+    <h1>院式别墅环境安防管理系统</h1>
+</div>
+
+<div class="row mb-2 justify-content-center">
+    <div class="col-auto">
+        <div class="col my-5 p-3 bg-white rounded shadow-sm">
+            <h3 id="time" style="width: 20rem;text-align: center;"></h3>
+        </div>
+
+        <div class="my-5 p-3 bg-white rounded shadow-sm" style="text-align: center;width: 100%;">
+            <div class="list-group">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        温度
+                        <span class="">{{temp}}℃</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        湿度
+                        <span class="">{{humd}}%</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="my-5">
+            <button type="button" class="btn btn-primary btn-lg btn-block" (click)="turnonled()">开灯</button>
+            <button type="button" class="btn btn-danger btn-lg btn-block my-3" (click)="turnoffled()">关灯</button>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="bk" style="position: relative;">
+            <div>
+                <div *ngIf="led == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left: 202px; top:475px;">
+                </div>
+                <div *ngIf="led == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 202px; top:475px;">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="ac == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left: 120px; top:240px;">
+                </div>
+                <div *ngIf="ac == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 120px; top:240px;">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="fengshan == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left: 425px; top:400px;">
+                </div>
+                <div *ngIf="fengshan == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 425px; top:400px;">
+                </div>
+                <div *ngIf="fengshan == 2">
+                    <img src="../../assets/imgs/GREEN.png" style="position: absolute; left: 425px; top:400px;">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="csp == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left: 687px; top:420px;">
+                </div>
+                <div *ngIf="csp == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 687px; top:420px;">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="fsp == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left: 785px; top:182px;">
+                </div>
+                <div *ngIf="fsp == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 785px; top:182px;">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="calarm == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left:345px; top:580px;">
+                </div>
+                <div *ngIf="calarm == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 345px; top:580px;">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="camera == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left: 20px; top:90px;">
+                </div>
+                <div *ngIf="camera == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 20px; top:90px;">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="curtain == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left: 642px; top:245px;">
+                </div>
+                <div *ngIf="curtain == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 642px; top:245px;">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="window == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left: 972px; top:400px;">
+                </div>
+                <div *ngIf="window == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 972px; top:400px;">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="door == 0">
+                    <img src="../../assets/imgs/YELLOW.png" style="position: absolute; left: 450px; top:230px;">
+                </div>
+                <div *ngIf="door == 1">
+                    <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 450px; top:230px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

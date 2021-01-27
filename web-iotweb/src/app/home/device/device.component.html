@@ -1,0 +1,129 @@
+<ng-template #template_add>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">添加设备</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="deviceForm">
+            <div class="form-group">
+                <label for="id">ID号</label>
+                <input type="text" class="form-control" id="id" name="id" [formControl]='id'>
+                <label for="ProductKey">ProductKey</label>
+                <input type="text" class="form-control" id="ProductKey" name="ProductKey" [formControl]='ProductKey'>
+                <label for="DeviceName">DeviceName</label>
+                <input type="text" class="form-control" id="DeviceName" name="DeviceName" [formControl]='DeviceName'>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-dark btn-outline-success" (click)="add();modalRef.hide()">添加</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #template_delete>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">是否要删除</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger btn-lg" (click)="delete();modalRef.hide()">确定</button>
+            <button type="button" class="btn btn-outline-dark btn-lg" (click)="modalRef.hide()">取消</button>
+        </div>
+    </div>
+</ng-template>
+
+<!-- <ng-template #template_update>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">修改面板</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide() ">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="deviceForm">
+            <div class="form-group">
+                <label for="id">ID号</label>
+                <input type="text" class="form-control" id="id" name="id" [formControl]='id'>
+                <label for="DeviceName">DeviceName</label>
+                <input type="text" class="form-control" id="DeviceName" name="DeviceName" [formControl]='DeviceName'>
+                <label for="ProductKey">ProductKey</label>
+                <input type="text" class="form-control" id="ProductKey" name="ProductKey" [formControl]='ProductKey'>
+                <label for="Description">Description</label>
+                <input type="text" class="form-control" id="Description" name="Description" [formControl]='Description'>
+            </div>
+        </form>
+        <button type="button" class="btn btn-warning btn-lg btn-block" (click)="update();modalRef.hide()">修改</button>
+    </div>
+</ng-template> -->
+
+<ng-template #template_search>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">查询设备</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="deviceForm">
+            <div class="form-group">
+                <label for="id">输入查询设备的ID号：</label>
+                <input type="text" class="form-control" id="id" name="id" [formControl]='id'>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary btn-lg" (click)="search();modalRef.hide()">查询</button>
+        </div>
+    </div>
+</ng-template>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+    <div class="my-3 p-3 bg-light rounded shadow-sm">
+        <div class="text-center">
+            <h4>Aliyun设备表</h4>
+        </div>
+        <div>
+            <div>
+                <table id="devTable" class="table table-bordered table-dark text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">ProductKey</th>
+                            <th scope="col">DeviceName</th>
+                            <!-- <th scope="col">选中状态</th> -->
+                            <th scope="col">删除设备</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let device of devices$ | async;' (click)="select(device)">
+                            <th scope="row">{{device.id}}</th>
+                            <td>{{device.ProductKey}}</td>
+                            <td>{{device.DeviceName}}</td>
+                            <!-- <td>
+                                <input type="radio" class="form-check-input" name="option"><label>选中</label>
+                            </td> -->
+                            <td>
+                                <button type="button" class="btn btn-outline-danger btn-block"
+                                    (click)="openModal(template_delete)" style="border: none">删除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 功能实现区域 -->
+        <div class="text-right">
+            <div class="col-auto my-1">
+                <button style="width: 12rem;" class="btn btn-success btn-lg mx-2"
+                    (click)="openModal(template_add)">新增设备</button>
+                <!-- <button class="btn btn-warning" (click)="openModal(template_update)">修改</button> -->
+                <button style="width: 12rem;" class="btn btn-primary btn-lg mx-2"
+                    (click)="openModal(template_search)">查询设备</button>
+            </div>
+        </div>
+    </div>
+</div>

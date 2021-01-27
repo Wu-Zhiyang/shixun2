@@ -1,0 +1,8 @@
+{
+  "name": "villa",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

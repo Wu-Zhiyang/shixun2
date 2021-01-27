@@ -1,0 +1,153 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>
+
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="text-align: center;width: 100%;">
+    <br>
+    <h1>院式别墅环境安防管理系统</h1>
+  </div>
+
+  <div style="text-align: center;;width: 100%;">
+    <h2 id="time"></h2>
+
+    <div class="my-5 p-3 bg-white rounded shadow-sm" style="text-align: center;width: 100%;">
+      <ion-list lines="full">
+        <ion-item color="light">
+          <ion-label>温度</ion-label>
+          <ion-badge color="dark">{{temp}}℃</ion-badge>
+        </ion-item>
+        <ion-item color="light">
+          <ion-label>湿度</ion-label>
+          <ion-badge color="dark">{{humd}}%</ion-badge>
+        </ion-item>
+      </ion-list>
+      <!-- <div class="list-group">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              温度
+              <span class="">{{temp}}℃</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              湿度
+              <span class="">{{humd}}%</span>
+            </li>
+          </ul>
+        </div> -->
+    </div>
+    <div class="my-5">
+      <ion-button color="success" expand="block" (click)="turnonled()">开灯</ion-button>
+      <ion-button color="danger" expand="block" (click)="turnoffled()">关灯</ion-button>
+      <!-- <button type=" button" class="btn btn-primary btn-lg btn-block" (click)="turnonled()">开灯</button>
+          <button type="button" class="btn btn-danger btn-lg btn-block my-3" (click)="turnoffled()">关灯</button> -->
+    </div>
+  </div>
+  <div class="col-auto">
+    <img src="../../assets/imgs/bieshu2.png" class="bk" style="position: relative;">
+    <div>
+      <div *ngIf="led == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left: 22%; top:75%;  width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="led == 1">
+        <img src="../../assets/imgs/BLUE.png"
+          style="position: absolute; left: 22%; top:75%;  width: 15px;height: 15px;">
+      </div>
+    </div>
+    <div>
+      <div *ngIf="ac == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left: 16%; top:65%;  width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="ac == 1">
+        <img src="../../assets/imgs/BLUE.png"
+          style="position: absolute; left: 16%; top:65%;  width: 15px;height: 15px;">
+      </div>
+    </div>
+    <div>
+      <div *ngIf="fengshan == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left: 44%; top:71%;  width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="fengshan == 1">
+        <img src="../../assets/imgs/BLUE.png"
+          style="position: absolute; left: 44%; top:71%;  width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="fengshan == 2">
+        <img src="../../assets/imgs/GREEN.png"
+          style="position: absolute; left: 44%; top:71%;  width: 15px;height: 15px;">
+      </div>
+    </div>
+    <div>
+      <div *ngIf="csp == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left: 61%; top:73%; width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="csp == 1">
+        <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 61%; top:73%; width: 15px;height: 15px;">
+      </div>
+    </div>
+    <div>
+      <div *ngIf="fsp == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left: 70%; top:63%;  width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="fsp == 1">
+        <img src="../../assets/imgs/BLUE.png"
+          style="position: absolute; left: 70%; top:63%;  width: 15px;height: 15px;">
+      </div>
+    </div>
+    <div>
+      <div *ngIf="calarm == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left:41%; top:77%; width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="calarm == 1">
+        <img src="../../assets/imgs/BLUE.png" style="position: absolute; left:41%; top:77%; width: 15px;height: 15px;">
+      </div>
+    </div>
+    <div>
+      <div *ngIf="camera == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left:12%; top:57%; width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="camera == 1">
+        <img src="../../assets/imgs/BLUE.png" style="position: absolute; left:12%; top:57%; width: 15px;height: 15px;">
+      </div>
+    </div>
+    <div>
+      <div *ngIf="curtain == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left: 58%; top:66%; width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="curtain == 1">
+        <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 58%; top:66%; width: 15px;height: 15px;">
+      </div>
+    </div>
+    <div>
+      <div *ngIf="window == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left: 85%; top:72%;  width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="window == 1">
+        <img src="../../assets/imgs/BLUE.png"
+          style="position: absolute; left: 85%; top:72%;  width: 15px;height: 15px;">
+      </div>
+    </div>
+    <div>
+      <div *ngIf="door == 0">
+        <img src="../../assets/imgs/YELLOW.png"
+          style="position: absolute; left: 44%; top:65%; width: 15px;height: 15px;">
+      </div>
+      <div *ngIf="door == 1">
+        <img src="../../assets/imgs/BLUE.png" style="position: absolute; left: 44%; top:65%; width: 15px;height: 15px;">
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>

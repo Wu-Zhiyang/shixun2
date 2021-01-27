@@ -1,0 +1,11 @@
+img{
+    width: 30px;
+    height: 30px;
+}
+.bk{
+    padding: 10px;
+    margin: 10px;
+    width: calc(100vw - 51em);
+    height: calc(100vh - 17.5em);
+    background: url("../../../assets/imgs/bieshu2.png");
+}
